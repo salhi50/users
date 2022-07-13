@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/wspace.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script async src="https://api.countapi.xyz/hit/pain/772f8f3b-f369-4526-8259-96f91cab3cb4?callback=websiteVisits"></script>
+  <title>Jordan-3</title>
+</head>
+  <body style="padding-bottom: 50px;">
+    <!-- form page -->
+
+    <div class="cont">
+      <div class="form-page mgx-auto" id="form">
+        <!-- some text -->
+        <div class="up text-center">
+          <p class="dark-grey fw-500">PAIN</p>
+          <h2 class="pdx-15">Welcome, you are a new user to <span class="bleu-color">Pain's Website</span></h2>
+        </div>
+        <!-- main form -->
+        <div class="form relative pdb-20">
+          <!-- username input -->
+          <div class="userName">
+            <div class="input relative">
+              <input type="text" name="" id="input-user" class="full-width main-input" placeholder="Enter Your Name" maxlength="25">
+              <ion-icon name="checkmark-circle" class="abs-icon d-none" id="user-icon" style="color: #06a706;"></ion-icon>
+              <ion-icon name="alert-circle" id="error-icon" class="abs-icon d-none" style="color: red;"></ion-icon>
+            </div>
+            <div class="required-user mgy-half-1rem">
+              <p class="light-grey p-xsmall">A valid <span class="bleu-color">UserName</span> must contain at least 3 characters or more</p>
+            </div>
+          </div>
+          <!-- button next -->
+          <div class="cont-btn" id="cont-btn">
+            <button class="w-color btn full-width bleu-bg main-btn">
+              <!-- main name of the btn -->
+              <div id="cont-name" class="align-center justify-center flex">
+                <span>Continue</span>
+                <ion-icon name="arrow-forward" class="pdl-15"></ion-icon>
+              </div>
+              <div id="wait-name" class="flex align-center justify-center d-none">
+                <span class="pdr-15">Wait...</span>
+                <div class="spinner"></div>
+              </div>
+            </button>
+          </div>
+          <!-- pain profil img -->
+          <div class="pain-profil absolute center-bg-pos" style="background-image: url(imgs/anime/two.jpg);"></div>
+        </div>
+      </div>
+      <!-- main page -->
+      <div class="main-page d-none" id="main">
+        <!-- greeting -->
+        <div class="greeting">
+          <!-- the main title for greeting -->
+          <h1><span id="ran-greet"></span><span id="greet-user" class="capital"></span></h1>
+          <p class="dark-grey">We're glad you're here. We hope you have a great experience.</p>
+        </div>
+        <div class="users mgt-1h5rem pdb-30">
+          <div class="up-users flex flex-between res-div-100 res-fd-col">
+            <div class="left">
+              <h6 class="fw-500">Your users</h6>
+              <p class="light-grey p-small">Add, edit or remove users</p>
+            </div>
+            <div class="right">
+              <div class="input relative res-div-100 res-mgt-1rem">
+                <ion-icon name="search-outline" style="left: 10px;" class="abs-icon dark-grey"></ion-icon>
+                <input type="text" class="main-input res-div-100" style="padding-left: 32px;padding-right: 0 !important;min-height: 38px !important;" placeholder="Search Users" id="search-for-users">
+              </div>
+            </div>
+          </div>
+          <div class="mid-users mgt-1rem">
+            <div class="boss flex flex-between align-center">
+              <div class="tit"><h5 class="fw-500">Users(<span id="count-users"></span>)</h5></div>
+              <div class="btn-tit flex">
+                <button class="btn secondary-btn flex align-center justify-center mgr-half-1rem" id="delete-all-icon">
+                  <ion-icon name="trash-outline" style="font-size: 20px;"></ion-icon>
+                  <span class="pdl-10 delete-icon">Delete All</span>
+                </button>
+                <!-- add user btn -->
+                <button class="btn secondary-btn w-color flex align-center justify-center show-modal bleu-bg no-active" style="border-bottom: 0 !important;">
+                  <ion-icon name="add-outline" style="font-size: 20px;"></ion-icon>
+                  <span class="pdl-10 d-hidden">Add user</span>
+                </button>
+
+              </div>
+            </div>
+            <!-- empty page -->
+            <div class="empty-users pdy-20 flex res-fd-col d-none" id="empty-users">
+              <div class="img div-25 res-div-30 res-mgx-auto">
+                <img src="imgs/emptyUser.png" alt="">
+              </div>
+              <div class="info fl-1 flex align-center justify-center text-center res-mgt-1rem">
+                <div class="content pdl-15">
+                  <h5>Add your first User</h5>
+                  <p class="light-grey p-xsmall mgt-half-1rem">
+                    you don't have any user yet, you can add it now!
+                  </p>
+                  <button class="btn main-btn bleu-bg w-color flex align-center justify-center mgt-1rem mgx-auto show-modal">
+                    <ion-icon name="add-outline"></ion-icon>
+                    <span class="pdl-15">Add user</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- not empty page -->
+            <div class="main-users d-none" id="main-users-cont">
+              <ul>
+                <li class="meaning-list pd-10 flex"> 
+                  <span class="name p-xxsmall dark-grey w-40">Name</span>
+                  <span class="name p-xxsmall dark-grey d-hidden w-25">Date Added</span>
+                  <span class="name p-xxsmall dark-grey d-hidden w-25">gender</span>
+                  <span class="name p-xxsmall dark-grey w-10 flex justify-center more">More</span>
+                </li>
+                <div id="parent-users">                
+                </div>
+              </ul>
+            </div>
+            <div class="no-user pdy-30 flex align-center fd-col d-none" id="no-result">
+              <div class="empty-box">
+                <img src="imgs/empty-box.png" alt="">
+              </div>
+              <p class="p-mid dark-grey text-center">No result found</p>
+            </div>
+          </div>
+          <div class="modal-add-user">
+            <div class="parent-modal d-none modal" id="parent-modal">
+              <div class="main-modal white-bg">
+                <div class="up-modal index-2 sticky t-pos-initial b-btt flex light-bg align-center flex-between pdy-15 pdx-15">
+                  <h5 class="fw-500 light-black">New User</h5>
+                  <ion-icon name="close-outline" class="dark-grey close-icon close-modal cursor"></ion-icon>
+                </div>
+                <!-- content modal -->
+                <div class="content-modal pdx-15">
+                  <div class="basic-info pdy-20 b-btt">
+                    <h6 class="p-small light-black heading-small fw-500">Basic Info</h6>
+                    <p class="p-xxsmall light-grey">Every field must contain at least <strong>3</strong> characters</p>
+                    <div class="input mgy-half-1rem relative">
+                      <input type="text" class="main-input full-width" style="min-height: 37px !important;" placeholder="First Name" maxlength="14">
+                      <ion-icon name="checkmark-circle-outline" class="abs-icon d-none" style="color: #06a706;"></ion-icon>
+                    </div>
+                    <div class="input relative">
+                      <input type="text" class="main-input full-width" style="min-height: 37px !important;" placeholder="Last Name" maxlength="14">
+                      <ion-icon name="checkmark-circle-outline" class="abs-icon d-none" style="color: #06a706;"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="about-info pdy-20 b-btt">
+                    <h6 class="p-small light-black heading-small fw-500">About</h6>
+                    <p class="p-xxsmall light-grey mgb-6">Tell us about this user</p>
+                    <div class="select-options flex">
+                      <div class="fst-select fl-1 mgr-half-1rem full-width">
+                        <label for="" class="p-xxsmall light-black">For You</label>
+                        <select name="" id="for-you-select" class="full-width sel">
+                          <option value="friend">Friend</option>
+                          <option value="family member">Family Member</option>
+                          <option value="best friend">Best Friend</option>
+                          <option value="girl friend">Girl Friend</option>
+                          <option value="boy friend">Boy Friend</option>
+                          <option value="classmate">Classmate</option>
+                          <option value="nothing">Nothing</option>
+                        </select>
+                      </div>
+                      <div class="scd-select fl-1 full-width">
+                        <label for="" class="p-xxsmall light-black">Gender</label>
+                        <select name="" id="gender-select" class="full-width sel">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="describe-info pdy-20 b-btt">
+                    <h6 class="p-small light-black heading-small fw-500">The person trait</h6>
+                    <p class="p-xxsmall light-grey mgb-6">
+                      How would you describe your friend ?</p>
+                      <div class="describe grid mgt-half-1rem">
+                        <div class="field">
+                          <div class="item-etat flex align-center justify-center full-width brown-cl cursor" data-bg="brown">
+                            <i class="fa fa-meh desc-icon" style="font-size: 18px;"></i>
+                            <span class="p-small pdl-15">Boring</span>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="item-etat flex align-center justify-center full-width bleu-color cursor" data-bg="bleu-bg">
+                            <i class="fa fa-grimace desc-icon" style="font-size: 18px;"></i>
+                            <span class="p-small pdl-15">Clever</span>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="item-etat flex align-center justify-center full-width cursor purple-color" data-bg="purple-bg">
+                            <i class="fa fa-grin-tongue desc-icon" style="font-size: 18px;"></i>
+                            <span class="p-small pdl-15">Crazy</span>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="item-etat flex align-center justify-center full-width cursor orange-color" data-bg="orange">
+                            <i class="fa fa-grin-squint-tears desc-icon" style="font-size: 18px;"></i>
+                            <span class="p-small pdl-15">Funny</span>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="item-etat flex align-center justify-center full-width cursor green-color" data-bg="green">
+                            <i class="fa fa-kiss-wink-heart desc-icon" style="font-size: 18px;"></i>
+                            <span class="p-small pdl-15">Kind</span>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="item-etat flex align-center justify-center full-width cursor red-color" data-bg="red">
+                            <i class="fa fa-angry desc-icon" style="font-size: 18px;"></i>
+                            <span class="p-small pdl-15">Bad</span>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="avatar-info pdy-20 b-btt">
+                    <h6 class="p-small light-black heading-small fw-500">Avatar</h6>
+                    <p class="p-xxsmall light-grey mgb-6">
+                      choose the perfect avatar for this user</p>
+                      <div class="list-pic grid mgt-half-1rem">
+                        <div class="image relative cursor selected-img">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/two.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/four.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/five.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/six.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/seven.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/eight.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/nine.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/ten.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/eleven.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/twelve.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/thirteen.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/fourteen.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/fifteen.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/sixteen.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/seventeen.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/nineteen.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/twenty.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/deux.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/trois.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/quatre.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/cinq.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/sis.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/sept.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/huit.jpg" alt="">
+                        </div>
+                        <div class="image relative cursor">
+                          <div class="img-control d-none">
+                            <i class="fa fa-check"></i>
+                          </div>
+                          <img src="imgs/anime/neuf.jpg" alt="">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="addition-info pdy-15 b-btt">
+                    <h6 class="p-small light-black heading-small fw-500">Additional info</h6>
+                    <p class="p-xxsmall light-grey mgb-6">
+                      The last step</p>
+                      <p class="bleu-color mgy-half-1rem">Imagine yourself writing a letter to this user, what would you write to him?</p>
+                      <div class="qst">
+                        <textarea class="main-input full-width" style="min-height: 120px !important;padding-right: 10px !important;" placeholder="ex: yo're an amazing friend" id="addit-info"></textarea>
+                      </div>
+                  </div>
+                  <div class="finish pdb-15">
+                    <div class="hid-item mgt-half-1rem" id="form-error">
+                      <p class="red-color">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span class="p-small pdl-10">Oops! Something missed.</span>
+                      </p>
+                    </div>
+                    <div class="btns-ctrl flex flex-between flex-wrap">
+                      <button class="secondary-btn btn mgy-half-1rem close-modal">
+                        <span>Cancel</span>
+                      </button>
+                      <button class="main-btn bleu-bg w-color btn mgy-half-1rem" id="add-user">
+                        <span>Add this user</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end modal -->
+          </div>
+          <div class="modal-verify">
+            <div class="parent-modal d-none" id="verify-modal">
+              <div class="main-modal">
+                <div class="up-verify b-btt pd-15">
+                  <h5 id="title-verify"></h5>
+                </div>
+                <p class="light-grey p-mid pdx-15 pdy-30" id="info-verify"></p>
+                <div class="btns-verify flex justify-end align-center pdb-10 pdx-15 flex-wrap">
+                  <button class="secondary-btn mgr-half-1rem btn mgy-half-1rem" id="close-verify">cancel</button>
+                  <button class="main-btn btn w-color bleu-bg mgy-half-1rem" id="delete-all-users">Delete All</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-details">
+              <div class="parent-modal index-1 d-none modal" id="modal-details">
+                <div class="img-fade index-2" id="img-fade">
+
+                </div>
+                <div class="main-modal  index-4">
+                  <!-- cover -->
+                  <div class="fetra-cover center-bg-pos relative" style="background-image: url('imgs/fetrah.jpg');">
+                    <div class="hash w-color h3-mid absolute">فطرة #</div>
+                    <div class="close-details absolute tl-pos-initial">
+                      <i class="fa fa-times cursor  w-color pd-10" style="font-size: 20px;"></i>
+                    </div>
+                  </div>
+                  <div class="card relative">
+                  <!-- img -->
+                  <div class="img-profil center-bg-pos mgx-auto" id="image-pro">
+                  </div>
+                  <!-- main info -->
+                  <div class="main-info-card mgt-half-1rem pdx-15">
+                    <h5 class="text-center capital" id="name-details"></h5>
+                    <p class="light-grey capital p-small text-center" id="for-you-details"></p>
+                  </div>
+                  <!-- buttons control -->
+                  <div class="btns-card flex justify-center flex-wrap mgt-1rem">
+                    <input type="file" name="" accept="image/*" id="up" class="d-none">
+                    <label for="up" id="edit-pic" class="secondary-btn btn flex align-center justify-center">
+                        <ion-icon name="camera-outline" style="font-size: 18px;" class="dark-grey"></ion-icon>
+                        <span class="pdl-10">Edit</span>
+                    </label>
+                    <button class="btn delete-button red-bg w-color mgl-half-1rem flex align-center justify-center" id="delete-details">
+                      <ion-icon name="trash" style="font-size: 18px;"></ion-icon>
+                      <span class="pdl-10 p-mid">Delete</span>
+                    </button>
+                  </div>
+                  <!-- informations sections -->
+                  <div class="nav-pages flex mgt-1h5rem">
+                    <div class="profil-nav nav pdy-15 pdx-5 cursor text-center fl-1 active">
+                      <span class="h5-small fw-400">Profil</span>
+                    </div>
+                    <!-- edit section -->
+                    <div class="edit-nav nav pdy-15 pdx-5 text-center cursor fl-1">
+                      <span class="h5-small fw-400">Edit</span>
+                    </div>
+                  </div>
+                  <div class="first-nav-page page">
+                  <!-- info with icons -->
+                  <div class="info-with-icons mgy-1h5rem pdx-15">
+                    <div class="title-up mgy-half-1rem"><h6>
+                      About
+                    </h6></div>
+                    <ul>
+                      <li class="b2-btt pdy-10 flex flex-between align-center b2-top">
+                        <div class="left flex align-center">
+                          <ion-icon name="location" class="light-black"></ion-icon>
+                          <span class="light-black pdl-15">Country</span>
+                        </div>
+                        <div class="right">
+                          <span class="light-grey">Morocco</span>
+                        </div>
+                      </li>
+                      <li class="pdy-10 flex flex-between align-center b2-btt">
+                        <div class="left flex align-center">
+                          <ion-icon name="male-female" class="light-black"></ion-icon>
+                          <span class="light-black pdl-15">Gender</span>
+                        </div>
+                        <div class="right">
+                          <span class="light-grey" id="gender-details"></span>
+                        </div>
+                      </li>
+                      <li class="b2-btt pdy-10 flex flex-between align-center">
+                        <div class="left flex align-center">
+                          <ion-icon name="calendar" class="light-black"></ion-icon>
+                          <span class="light-black pdl-15">Date Added</span>
+                        </div>
+                        <div class="right">
+                          <span class="light-grey" id="date-added-details"></span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="person-features pdx-15">
+                    <div class="title-up mgy-half-1rem"><h6>
+                      Person Traits
+                    </h6></div>
+                    <div class="list-features grid" id="list-features">
+                      
+                    </div>
+                  </div>
+                  <div class="bio pdx-15 mgb-1rem">
+                    <div class="title-up mgb-half-1rem mgt-1rem"><h6>
+                      Your letter to this user
+                    </h6></div>
+                    <div id="bio" class="p-mid dark-grey"></div>
+                  </div>
+                  <div class="btt-card b2-top pdt-15 pdx-15 flex justify-end">
+                    <button class="secondary-btn btn mgt-half-1rem close-details">
+                      <span>close</span>
+                    </button>
+                  </div>
+                  </div>
+                  <div class="second-nav-page page pdx-15 d-none">
+                    <!-- basic sections -->
+                    <div class="basic-sect mgb-1rem">
+                      <!-- titles -->
+                      <div class="title-up mgy-1rem"><h5 class="fw-500 light-black">Edit user informations</h5></div>
+                      <div class="title-down flex align-center mgb-half-1rem">
+                        <span class="light-grey p-small">
+                          Basic info
+                        </span>
+                        <div class="line fl-1"></div>
+                      </div>
+                      <!-- inputs -->
+                      <label for="" class="p-xxsmall">First Name</label>
+                      <div class="input relative">
+                        <input type="text" name="" class="secondary-input full-width" id="fname-details" value="mohammed" readonly maxlength="14">
+                        <i class="fa fa-pen edit-field cursor dark-grey abs-icon p-small"></i>
+                      </div>
+                      <label for="" class="p-xxsmall">Last Name</label>
+                      <div class="input relative">
+                        <input type="text" name="" class="secondary-input full-width" id="lname-details" value="salhi" readonly maxlength="14">
+                        <i class="fa fa-pen cursor dark-grey abs-icon p-small edit-field"></i>
+                      </div>
+                      <div class="title-down flex align-center mgy-1rem">
+                        <span class="light-grey p-small">
+                          About info
+                        </span>
+                        <div class="line fl-1"></div>
+                      </div>
+                      <label for="" class="p-xxsmall">For You</label>
+                      <select name="" class="caret select-mod full-width" id="fsel-details">
+                        <option value="friend">Friend</option>
+                        <option value="family member">Family Member</option>
+                        <option value="best friend">Best Friend</option>
+                        <option value="girl friend">Girl Friend</option>
+                        <option value="boy friend">Boy Friend</option>
+                        <option value="classmate">Classmate</option>
+                        <option value="nothing">Nothing</option>
+                      </select>
+                      <label for="" class="p-xxsmall">Gender</label>
+                      <select name="" class="caret select-mod full-width" id="ssel-details">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                      
+                      <!--  -->
+                    </div>
+                    <div class="error-edit d-none pd-10 flex align-center" id="error-details-edit">
+                      <i class="fa fa-exclamation-circle red-color shrink-null"></i>
+                      <span class="pdl-15 red-color p-mid">First or Last Name must contains at least 3 characters.</span>
+                    </div>
+                    <div class="btt-card pdt-15 flex justify-end">
+                      <button class="main-btn btn bleu-bg w-color" id="save-close">
+                        <span>Save & close</span>
+                      </button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <!-- end users -->
+        </div>
+        <!-- start popups -->
+        <div class="popups">
+        <div class="add-succ fixed flex align-center pdy-15 pdx-15 pop-me" style="z-index: 9999;" id="add-succ">
+          <i class="fa fa-check-circle"></i>
+          <span class="p-mid pdl-15">added successfully</span>
+        </div>
+        <div class="save-succ fixed flex align-center pdy-15 pdx-15 pop-me" style="z-index: 9999;" id="save-succ">
+          <i class="fa fa-check-circle"></i>
+          <span class="p-mid pdl-15">Saved successfully</span>
+        </div>
+        <div class="del-succ fixed flex align-center pdy-15 pdx-15 pop-me" style="z-index: 9999;" id="del-succ">
+          <i class="fa fa-check-circle"></i>
+          <span class="p-mid pdl-15">Deleted successfully</span>
+        </div>
+      </div>
+        <!-- end popups -->
+
+        <!-- start account settings -->
+        <div class="account-settings">
+          <div class="up-account">
+            <h6 class="fw-500 light-black">Settings</h6>
+            <p class="light-grey p-small">Manage you account and your history</p>
+          </div>
+          <div class="list-control mgt-1rem">
+            <!-- account list -->
+            <div class="account-list">
+              <div class="drop cursor flex align-center flex-between pdy-15 pdx-20">
+                <div class="gau flex align-center">
+                  <img src="imgs/user.png" alt="">
+                  <div class="info pdl-20">
+                    <h5 class="fw-500 light-black p-mid">Account</h5>
+                    <p class="dark-grey capital p-small">Edit or delete your main profil</p>
+                  </div>
+                </div>
+                <div class="droit flex align-center">
+                  <ion-icon name="chevron-down-outline" style="font-size: 20px;" class="light-grey pdl-15"></ion-icon>
+                </div>
+              </div>
+              <div class="dropped d-none my-account">
+                <div class="list-account-modify flex flex-wrap">
+                  <!-- edit informations -->
+                  <div class="fst-section-edit div-50 res-div-100 pd-20">
+                    <div class="your-prof-pic center-bg-pos mgx-auto relative" id="your-profil-pic">
+                      <label for="cam" class="absolute br-pos-initial cursor flex align-center justify-center" id="icon-prof-pic">
+                        <i class="fa fa-camera" style="font-size: 14px;"></i>
+                      </label>
+                      <input type="file" accept="image/*" class="d-none" name="" id="cam">
+                    </div>
+                    <div class="your-name flex fd-col mgx-auto mgt-1rem relative">
+                      <div class="input relative">
+                        <div class="hover-info d-none" id="hover-info">must contain at least 3 characters</div>
+                        <input type="text" class="secondary-input full-width" placeholder="Your name" id="name-your-account" readonly maxlength="25">
+                        <i class="fa fa-pen dark-grey abs-icon cursor" style="font-size: 12px;" id="icon-name-account"></i>
+                      </div>
+                      <p class="p-small light-grey mgt-4">Your name will appear at the top of the page</p>
+                    </div>
+
+                  </div>
+                  <!-- delete account -->
+                  <div class="scd-section-edit div-50 res-div-100 pd-20">
+                    <div class="title">
+                      <h5 class="p-mid light-black fw-500">Delete my account</h5>
+                      <p class="p-small light-grey mgt-6">Once you delete your account, there is no going back.</p>
+                    </div>
+                    <div class="btn-delete-account mgt-2rem">
+                      <button class="btn bg-none red-color danger-btn rounded" id="delete-me">
+                        <span>Delete for ever</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- history list -->
+            <div class="history-list mgt-1rem">
+              <div class="drop cursor flex align-center flex-between pdy-15 pdx-20">
+                <div class="gau flex align-center">
+                  <img src="imgs/history.png" alt="">
+                  <div class="info pdl-20">
+                    <h5 class="fw-500 light-black p-mid">History</h5>
+                    <p class="dark-grey capital p-small">Any modification will appear here</p>
+                  </div>
+                </div>
+                <div class="droit flex align-center">
+                  <ion-icon name="chevron-down-outline" style="font-size: 20px;" class="light-grey pdl-15"></ion-icon>
+                </div>
+              </div>
+              <div class="dropped d-none">
+                <div class="empty-history d-none flex align-center justify-center pdx-15 pdy-20 fd-col" id="empty-hist">
+                  <p class="p-small dark-grey text-center">Nothing to see here</p>
+                </div>
+                <ul class="my-history">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end account settings -->
+        <!-- modal verify delete account -->
+
+        <div class="modal-delete-account">
+          <div class="parent-modal d-none" id="modal-for-ever">
+            <div class="main-modal">
+              <div class="up-modal b2-btt flex align-center flex-between pd-15">
+                <h5 class="fw-500">Delete My Account</h5>
+                <i class="fa fa-times dark-grey cursor" style="font-size: 18px;" id="close-for-ever"></i>
+              </div>
+              <div class="content-modal pdy-20 pdx-15">
+                <p class="light-grey pdb-15">If you want to delete your account type this sentence as it is. <span class="fw-500 bleu-color d-inline">you are legend Salhi ^_^</span></p>
+                  <div class="input relative">
+                    <div class="hover-info d-none" id="paste">cannot paste</div>
+                    <input type="text" name="encourage-me" class="main-input full-width mgy-half-1rem" placeholder="I'm waiting you" id="input-for-ever">
+                  </div>
+                  <input type="button" value="Delete account" class="btn encourage-btn full-width mgt-4" id="delete-for-ever">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end main page -->
+      </div>
+        <!-- end container -->
+      </div>
+      <footer class="w-color long" id="foot" style="padding-top: 20px !important;">
+        <div class="cont">
+          <div class="vis-git flex align-center justify-center">
+            <div class="vis flex align-center">
+              <ion-icon name="eye" style="font-size: 17px;"></ion-icon>
+              <div id="visitor" class="p-small pdl-10 fw-600"></div>
+            </div>
+            <div class="git mgl-1rem mgt-4">
+              <a href="https://github.com/salhi50?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="copy text-center mgt-1rem p-xsmall pdb-15" style="font-family: 'Poppins', sans-serif; color: #a8a8a8;">made by <i class="fa fa-heart mgx-4" style="color: #d34848;"></i> Salhi</div>
+        </div>
+      </footer>
+  </body>
+<script src="script.js"></script>
+</html>
